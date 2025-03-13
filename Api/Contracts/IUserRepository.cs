@@ -1,9 +1,7 @@
-using User;
-
 public interface IUserRepository
 {
-   User Create(User user);
-   User GetById(Guid userId);
-   User Update(User user);
-   User Delete(Guid userId);
+    Task<User> Create(User user);
+    Task<User> GetById(Guid userId);
+    Task<User> Update(User user);
+    Task<User> Delete(Guid userId);
 }
