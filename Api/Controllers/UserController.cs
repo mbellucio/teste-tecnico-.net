@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("usuarios")]
 public class UsersController : ControllerBase
 {
     private readonly IUserService _service;
@@ -11,7 +11,7 @@ public class UsersController : ControllerBase
         _service = service ?? throw new ArgumentNullException(nameof(service));
     }
 
-    [HttpPost("new")]
+    [HttpPost("")]
     public async Task<ActionResult<User>> Create(User user)
     {
         var createdUser = await _service.Create(user);
