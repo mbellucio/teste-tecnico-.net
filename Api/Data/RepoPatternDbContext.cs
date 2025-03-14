@@ -6,4 +6,12 @@ public class RepoPatternDbContext : DbContext
     : base(options)
     { }
     public DbSet<User> Users { get; set; }
+    public DbSet<Order> Orders { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<User>()
+            .HasIndex(u => u.Email)
+            .IsUnique();
+    }
 }
