@@ -2,27 +2,21 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllers();
-builder.Services.AddOpenApi();
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(5000);  
+});
 
-// Add DbContext
+builder.Services.AddControllers();
+
 builder.Services.AddDbContext<RepoPatternDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Add your services
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();  // Enable OpenAPI/Swagger UI in development
-}
-
-// Configure HTTPS
-app.UseHttpsRedirection();
+app.MapControllers();  
 
 app.Run();

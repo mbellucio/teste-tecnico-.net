@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "E:\\projects\\dotnet-api\\src\\Api\\dotnet-api.csproj": {}
+    "/app/dotnet-api.csproj": {}
   },
   "projects": {
-    "E:\\projects\\dotnet-api\\src\\Api\\dotnet-api.csproj": {
+    "/app/dotnet-api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\projects\\dotnet-api\\src\\Api\\dotnet-api.csproj",
+        "projectUniqueName": "/app/dotnet-api.csproj",
         "projectName": "dotnet-api",
-        "projectPath": "E:\\projects\\dotnet-api\\src\\Api\\dotnet-api.csproj",
-        "packagesPath": "C:\\Users\\Matheus\\.nuget\\packages\\",
-        "outputPath": "E:\\projects\\dotnet-api\\src\\Api\\obj\\",
+        "projectPath": "/app/dotnet-api.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/app/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Matheus\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -102,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
