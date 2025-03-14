@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>dotnet-api</name>
+    </assembly>
+    <members>
+        <member name="M:OrdersController.Create(CreateOrderDto)">
+            <summary>
+            Creates a new order for a user.
+            </summary>
+            <param name="order">The order details to create.</param>
+            <returns>The newly created order.</returns>
+            <response code="200">Returns the created order.</response>
+            <response code="400">If the order data is invalid or missing.</response>
+            <response code="500">If an unexpected error occurs.</response>
+        </member>
+        <member name="M:OrdersController.GetUserOrders(System.Guid)">
+            <summary>
+            Return all orders from a user
+            </summary>
+            <param name="usuarioId">The user id to return it's orders</param>
+            <returns>All user orders.</returns>
+            <response code="200">Returns all user orders.</response>
+            <response code="404">If the order data is invalid or missing.</response>
+            <response code="500">If an unexpected error occurs.</response>
+        </member>
+        <member name="M:OrdersController.Update(UpdateOrderDto)">
+            <summary>
+            Updates an existing order
+            </summary>
+            <param name="order">The order details to update.</param>
+            <returns>The newly updated order.</returns>
+            <response code="200">Returns the updated order.</response>
+            <response code="404">If the order data is invalid or missing.</response>
+            <response code="500">If an unexpected error occurs.</response>
+        </member>
+        <member name="M:OrdersController.Delete(System.Guid)">
+            <summary>
+            Deletes an order
+            </summary>
+            <param name="id">the order id.</param>
+            <returns>The newly deleted order</returns>
+            <response code="200">Returns the deleted order.</response>
+            <response code="404">If the order data is invalid or missing.</response>
+            <response code="500">If an unexpected error occurs.</response>
+        </member>
+        <member name="M:UsersController.Create(CreateUserDto)">
+            <summary>
+            Creates a new User
+            </summary>
+            <param name="user">The user details to create.</param>
+            <returns>The newly created user.</returns>
+            <response code="200">Returns the created user.</response>
+            <response code="400">If the user data is invalid or missing.</response>
+            <response code="500">If an unexpected error occurs.</response>
+        </member>
+        <member name="M:UsersController.GetById(System.Guid)">
+            <summary>
+            Returns a user.
+            </summary>
+            <param name="id">The user id.</param>
+            <returns>A user.</returns>
+            <response code="200">Returns a user.</response>
+            <response code="404">If the user data is invalid or missing.</response>
+            <response code="500">If an unexpected error occurs.</response>
+        </member>
+        <member name="M:UsersController.Update(UpdateUserDto)">
+            <summary>
+            Updates an existing User.
+            </summary>
+            <param name="user">The user details to update.</param>
+            <returns>The newly updated user.</returns>
+            <response code="200">Returns the updated user.</response>
+            <response code="404">If the user data is invalid or missing.</response>
+            <response code="500">If an unexpected error occurs.</response>
+        </member>
+        <member name="M:UsersController.Delete(System.Guid)">
+            <summary>
+            Deletes an user
+            </summary>
+            <param name="id">the user id.</param>
+            <returns>The newly deleted user</returns>
+            <response code="200">Returns the deleted user.</response>
+            <response code="404">If the user data is invalid or missing.</response>
+            <response code="500">If an unexpected error occurs.</response>
+        </member>
+        <member name="T:CreateOrderDto">
+            <summary>
+            Data required to create a new order.
+            </summary>
+        </member>
+        <member name="P:CreateOrderDto.Description">
+            <summary>
+            The description of the order.
+            </summary>
+            <example>Test Order</example>
+        </member>
+        <member name="P:CreateOrderDto.Value">
+            <summary>
+            The monetary value of the order.
+            </summary>
+            <example>100.00</example>
+        </member>
+        <member name="T:CreateUserDto">
+            <summary>
+            Data required to create a new user.
+            </summary>
+        </member>
+        <member name="P:CreateUserDto.Name">
+            <summary>
+            The name of the User.
+            </summary>
+            <example>Test User</example>
+        </member>
+        <member name="P:CreateUserDto.Email">
+            <summary>
+            The email of the User.
+            </summary>
+            <example>100.00</example>
+        </member>
+        <member name="T:UpdateOrderDto">
+            <summary>
+            Data required to updaye a new order.
+            </summary>
+        </member>
+        <member name="P:UpdateOrderDto.Description">
+            <summary>
+            The description of the order.
+            </summary>
+            <example>Test Order</example>
+        </member>
+        <member name="P:UpdateOrderDto.Value">
+            <summary>
+            The monetary value of the order.
+            </summary>
+            <example>100.00</example>
+        </member>
+        <member name="T:UpdateUserDto">
+            <summary>
+            Data required to update a new user.
+            </summary>
+        </member>
+        <member name="P:UpdateUserDto.Name">
+            <summary>
+            The name of the User.
+            </summary>
+            <example>Test User</example>
+        </member>
+        <member name="P:UpdateUserDto.Email">
+            <summary>
+            The email of the User.
+            </summary>
+            <example>100.00</example>
+        </member>
+        <member name="T:dotnet_api.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:dotnet_api.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:dotnet_api.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:dotnet_api.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:dotnet_api.Migrations.UpdateOrderModel">
+            <inheritdoc />
+        </member>
+        <member name="M:dotnet_api.Migrations.UpdateOrderModel.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:dotnet_api.Migrations.UpdateOrderModel.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:dotnet_api.Migrations.UpdateOrderModel.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:dotnet_api.Migrations.AddUniqueEmailToUser">
+            <inheritdoc />
+        </member>
+        <member name="M:dotnet_api.Migrations.AddUniqueEmailToUser.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:dotnet_api.Migrations.AddUniqueEmailToUser.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:dotnet_api.Migrations.AddUniqueEmailToUser.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

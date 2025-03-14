@@ -3,8 +3,8 @@ services:
     image: rapidfort/microsoft-sql-server-2019-ib:latest
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=!fgvHiringProcess2025 
-      - MSSQL_PID=Express 
+      - SA_PASSWORD=!fgvHiringProcess2025
+      - MSSQL_PID=Express
       - MSSQL_DB_NAME=fgvDb
     ports:
       - "1433:1433"
@@ -18,4 +18,4 @@ services:
       - .:/app
     depends_on:
       - db
-    command: bash -c 'dotnet tool restore && dotnet restore ./dotnet-api.csproj && dotnet build ./dotnet-api.csproj && dotnet ef database update && dotnet run --project ./dotnet-api.csproj'
+    command: bash -c "./start.sh"
