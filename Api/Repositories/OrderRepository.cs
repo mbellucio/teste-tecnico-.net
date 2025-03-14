@@ -5,25 +5,28 @@ public class OrderRepository : IOrderRepository
     private readonly RepoPatternDbContext _context;
     private readonly IUserService _userService;
 
-    public OrderRepository(RepoPatternDbContext context)
+    public OrderRepository(RepoPatternDbContext context, IUserService userService)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
+        _userService = userService ?? throw new ArgumentNullException(nameof(userService));
     }
 
     public async Task<Order> Create(Order order)
     {
         try
         {
-            var user = await _userService.GetById(order.userId);
-
             if (order == null)
                 throw new ArgumentNullException(nameof(order));
+
+            var user = await _userService.GetById(order.UserId);
+            if (user == null)
+                throw new ArgumentException($"User with ID {order.UserId} not found.");
 
             var entity = new Order
             {
                 Description = order.Description,
                 Value = order.Value,
-                user = order.User,
+                UserId = order.UserId,
             };
 
             _context.Orders.Add(entity);
@@ -42,14 +45,11 @@ public class OrderRepository : IOrderRepository
         try
         {
             var user = await _userService.GetById(userId);
-
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
 
-            return await _dbContext.Users
-                .Include(u => u.Orders)
-                .FirstOrDefaultAsync(u => u.Id == userId)
-                ?.Orders
+            return await _context.Orders
+                .Where(o => o.UserId == userId)
                 .ToListAsync();
         }
         catch (Exception ex)
