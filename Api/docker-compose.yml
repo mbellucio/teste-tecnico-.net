@@ -3,8 +3,8 @@ services:
     image: rapidfort/microsoft-sql-server-2019-ib:latest
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=!fgvHiringProcess2025 # Strong password for the 'sa' user
-      - MSSQL_PID=Express # You can also set the edition of SQL Server
+      - SA_PASSWORD=!fgvHiringProcess2025 
+      - MSSQL_PID=Express 
       - MSSQL_DB_NAME=fgvDb
     ports:
       - "1433:1433"
