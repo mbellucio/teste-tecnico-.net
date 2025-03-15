@@ -337,3 +337,4 @@ E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.d
 E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
 E:/projects/dotnet-api/src/Api/obj/Debug/net9.0/dotnet-api.xml
+/app/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
