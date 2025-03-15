@@ -1,7 +1,7 @@
 public interface IOrderRepository
 {
     Task<Order> Create(Order order);
-    Task<List<Order>> GetUserOrders(Guid userId);
+    Task<PagedResponse<Order>> GetUserOrders(Guid userId, PaginationRequest pagination);
     Task<Order> Update(Guid id, Order order);
     Task<Order> Delete(Guid userId);
 }

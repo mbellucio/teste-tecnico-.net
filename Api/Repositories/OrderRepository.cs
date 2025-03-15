@@ -30,14 +30,27 @@ public class OrderRepository : IOrderRepository
         return entity;
     }
 
-    public async Task<List<Order>> GetUserOrders(Guid userId)
+    public async Task<PagedResponse<Order>> GetUserOrders(Guid userId, PaginationRequest pagination)
     {
+        if (pagination.PageNumber <= 0)
+            pagination.PageNumber = 1;
+
+        if (pagination.PageSize <= 0)
+            pagination.PageSize = 5;
+
         var user = await _userService.GetById(userId);
         ArgumentNullException.ThrowIfNull(user, nameof(user));
 
-        return await _context.Orders
-            .Where(o => o.UserId == userId)
+        var query = _context.Orders.Where(o => o.UserId == userId);
+        var totalRecords = await query.CountAsync();
+        
+        var orders = await query
+            .OrderBy(o => o.OrderDate)
+            .Skip((pagination.PageNumber - 1) * pagination.GetPageSize())
+            .Take(pagination.GetPageSize())
             .ToListAsync();
+
+        return new PagedResponse<Order>(orders, pagination.PageNumber, pagination.GetPageSize(), totalRecords);
     }
 
     public async Task<Order> Update(Guid id, Order order)
