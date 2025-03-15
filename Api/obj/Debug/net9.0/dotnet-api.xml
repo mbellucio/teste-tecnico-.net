@@ -190,5 +190,17 @@
         <member name="M:dotnet_api.Migrations.AddUniqueEmailToUser.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:dotnet_api.Migrations.RemoveOrderListFromUser">
+            <inheritdoc />
+        </member>
+        <member name="M:dotnet_api.Migrations.RemoveOrderListFromUser.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:dotnet_api.Migrations.RemoveOrderListFromUser.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:dotnet_api.Migrations.RemoveOrderListFromUser.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>
