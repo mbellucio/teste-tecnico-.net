@@ -14,7 +14,7 @@ public class OrdersController : ControllerBase
     /// <summary>
     /// Creates a new order for a user.
     /// </summary>
-    /// <param name="order">The order details to create.</param>
+    /// <param name="orderDto">The order details to create.</param>
     /// <returns>The newly created order.</returns>
     /// <response code="200">Returns the created order.</response>
     /// <response code="400">If the order data is invalid or missing.</response>
@@ -48,32 +48,33 @@ public class OrdersController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<List<Order>>> GetUserOrders(Guid id)
+    public async Task<ActionResult<List<Order>>> GetUserOrders(Guid usuarioId)
     {
-        var orders = await _orderService.GetUserOrders(id);
+        var orders = await _orderService.GetUserOrders(usuarioId);
         return orders != null ? Ok(orders) : NotFound();
     }
 
     /// <summary>
     /// Updates an existing order
     /// </summary>
-    /// <param name="order">The order details to update.</param>
+    /// <param name="id">The id of the order to update.</param>
+    /// <param name="orderDto">The order details to update.</param>
     /// <returns>The newly updated order.</returns>
     /// <response code="200">Returns the updated order.</response>
     /// <response code="404">If the order data is invalid or missing.</response>
     /// <response code="500">If an unexpected error occurs.</response>
-    [HttpPut]
+    [HttpPut("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<Order>> Update([FromBody] UpdateOrderDto orderDto)
+    public async Task<ActionResult<Order>> Update(Guid id, [FromBody] UpdateOrderDto orderDto)
     {
         var order = new Order
         {
             Description = orderDto.Description,
-            Value = orderDto.Value,
+            Value = orderDto.Value ?? 0,
         };
-        var updatedOrder = await _orderService.Update(order);
+        var updatedOrder = await _orderService.Update(id, order);
         return updatedOrder != null ? Ok(updatedOrder) : NotFound();
     }
 

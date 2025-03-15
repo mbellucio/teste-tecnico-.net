@@ -18,9 +18,9 @@ public class UserService : IUserService
         return await _repository.GetById(userId);
     }
 
-    public async Task<User> Update(User user)
+    public async Task<User> Update(Guid id, User user)
     {
-        var updatedUser = await _repository.Update(user);
+        var updatedUser = await _repository.Update(id, user);
         return updatedUser;
     }
 
