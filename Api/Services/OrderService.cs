@@ -13,9 +13,9 @@ public class OrderService : IOrderService
         return createdOrder;
     }
 
-    public async Task<List<Order>> GetUserOrders(Guid userId)
+    public async Task<PagedResponse<Order>> GetUserOrders(Guid userId, PaginationRequest pagination)
     {
-        return await _repository.GetUserOrders(userId);
+        return await _repository.GetUserOrders(userId, pagination);
     }
 
     public async Task<Order> Update(Guid id, Order order)

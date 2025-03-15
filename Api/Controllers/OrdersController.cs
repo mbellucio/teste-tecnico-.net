@@ -40,17 +40,21 @@ public class OrdersController : ControllerBase
     /// Return all orders from a user
     /// </summary>
     /// <param name="usuarioId">The user id to return it's orders</param>
+    /// <param name="pagination">Pagination parameters</param>
     /// <returns>All user orders.</returns>
     /// <response code="200">Returns all user orders.</response>
     /// <response code="404">If the order data is invalid or missing.</response>
     /// <response code="500">If an unexpected error occurs.</response>
     [HttpGet("{usuarioId}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<List<Order>>> GetUserOrders(Guid usuarioId)
+    public async Task<ActionResult<PagedResponse<Order>>> GetUserOrders(
+    Guid usuarioId,
+    [FromQuery] PaginationRequest pagination)
     {
-        var orders = await _orderService.GetUserOrders(usuarioId);
+        var orders = await _orderService.GetUserOrders(usuarioId, pagination);
         return orders != null ? Ok(orders) : NotFound();
     }
 
@@ -65,6 +69,7 @@ public class OrdersController : ControllerBase
     /// <response code="500">If an unexpected error occurs.</response>
     [HttpPut("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
+
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<ActionResult<Order>> Update(Guid id, [FromBody] UpdateOrderDto orderDto)

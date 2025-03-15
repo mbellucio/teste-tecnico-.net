@@ -14,11 +14,12 @@
             <response code="400">If the order data is invalid or missing.</response>
             <response code="500">If an unexpected error occurs.</response>
         </member>
-        <member name="M:OrdersController.GetUserOrders(System.Guid)">
+        <member name="M:OrdersController.GetUserOrders(System.Guid,PaginationRequest)">
             <summary>
             Return all orders from a user
             </summary>
             <param name="usuarioId">The user id to return it's orders</param>
+            <param name="pagination">Pagination parameters</param>
             <returns>All user orders.</returns>
             <response code="200">Returns all user orders.</response>
             <response code="404">If the order data is invalid or missing.</response>
