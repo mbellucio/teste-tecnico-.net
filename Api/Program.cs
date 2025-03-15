@@ -34,9 +34,9 @@ builder.Services.AddSwaggerGen(c =>
     c.IncludeXmlComments(xmlPath);
 });
 
-
 var app = builder.Build();
 
+app.UseExceptionMiddleware();
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
