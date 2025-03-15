@@ -8,7 +8,7 @@
             <summary>
             Creates a new order for a user.
             </summary>
-            <param name="order">The order details to create.</param>
+            <param name="orderDto">The order details to create.</param>
             <returns>The newly created order.</returns>
             <response code="200">Returns the created order.</response>
             <response code="400">If the order data is invalid or missing.</response>
@@ -24,11 +24,12 @@
             <response code="404">If the order data is invalid or missing.</response>
             <response code="500">If an unexpected error occurs.</response>
         </member>
-        <member name="M:OrdersController.Update(UpdateOrderDto)">
+        <member name="M:OrdersController.Update(System.Guid,UpdateOrderDto)">
             <summary>
             Updates an existing order
             </summary>
-            <param name="order">The order details to update.</param>
+            <param name="id">The id of the order to update.</param>
+            <param name="orderDto">The order details to update.</param>
             <returns>The newly updated order.</returns>
             <response code="200">Returns the updated order.</response>
             <response code="404">If the order data is invalid or missing.</response>
@@ -48,7 +49,7 @@
             <summary>
             Creates a new User
             </summary>
-            <param name="user">The user details to create.</param>
+            <param name="userDto">The user details to create.</param>
             <returns>The newly created user.</returns>
             <response code="200">Returns the created user.</response>
             <response code="400">If the user data is invalid or missing.</response>
@@ -64,11 +65,12 @@
             <response code="404">If the user data is invalid or missing.</response>
             <response code="500">If an unexpected error occurs.</response>
         </member>
-        <member name="M:UsersController.Update(UpdateUserDto)">
+        <member name="M:UsersController.Update(System.Guid,UpdateUserDto)">
             <summary>
             Updates an existing User.
             </summary>
-            <param name="user">The user details to update.</param>
+            <param name="id">The user id.</param>
+            <param name="userDto">The user details to update.</param>
             <returns>The newly updated user.</returns>
             <response code="200">Returns the updated user.</response>
             <response code="404">If the user data is invalid or missing.</response>
@@ -110,47 +112,47 @@
             <summary>
             The name of the User.
             </summary>
-            <example>Test User</example>
+            <example>test user</example>
         </member>
         <member name="P:CreateUserDto.Email">
             <summary>
             The email of the User.
             </summary>
-            <example>100.00</example>
+            <example>testuser@mail.com</example>
         </member>
         <member name="T:UpdateOrderDto">
             <summary>
-            Data required to updaye a new order.
+            Data required to update an existing order. Only provided fields will be updated.
             </summary>
         </member>
         <member name="P:UpdateOrderDto.Description">
             <summary>
-            The description of the order.
+            The description of the order. Optional; if not provided, the existing value is retained.
             </summary>
             <example>Test Order</example>
         </member>
         <member name="P:UpdateOrderDto.Value">
             <summary>
-            The monetary value of the order.
+            The monetary value of the order. Optional; if not provided, the existing value is retained.
             </summary>
             <example>100.00</example>
         </member>
         <member name="T:UpdateUserDto">
             <summary>
-            Data required to update a new user.
+            Data required to update an existing user. Only provided fields will be updated.
             </summary>
         </member>
         <member name="P:UpdateUserDto.Name">
             <summary>
-            The name of the User.
+            The name of the user. Optional; if not provided, the existing value is retained.
             </summary>
-            <example>Test User</example>
+            <example>test user</example>
         </member>
         <member name="P:UpdateUserDto.Email">
             <summary>
-            The email of the User.
+            The email of the user. Optional; if not provided, the existing value is retained.
             </summary>
-            <example>100.00</example>
+            <example>testuser@mail.com</example>
         </member>
         <member name="T:dotnet_api.Migrations.InitialCreate">
             <inheritdoc />
@@ -186,6 +188,18 @@
             <inheritdoc />
         </member>
         <member name="M:dotnet_api.Migrations.AddUniqueEmailToUser.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:dotnet_api.Migrations.RemoveOrderListFromUser">
+            <inheritdoc />
+        </member>
+        <member name="M:dotnet_api.Migrations.RemoveOrderListFromUser.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:dotnet_api.Migrations.RemoveOrderListFromUser.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:dotnet_api.Migrations.RemoveOrderListFromUser.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

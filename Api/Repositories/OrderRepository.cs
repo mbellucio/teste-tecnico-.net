@@ -40,19 +40,25 @@ public class OrderRepository : IOrderRepository
             .ToListAsync();
     }
 
-    public async Task<Order> Update(Order order)
+    public async Task<Order> Update(Guid id, Order order)
     {
         ArgumentNullException.ThrowIfNull(order, nameof(order));
 
+        if (id == Guid.Empty)
+            throw new ArgumentException("Order ID must be provided.", nameof(id));
+
         var existingOrder = await _context.Orders
-            .FirstOrDefaultAsync(o => o.Id == order.Id);
+            .FirstOrDefaultAsync(o => o.Id == id);
 
         ArgumentNullException.ThrowIfNull(existingOrder, nameof(order));
 
-        existingOrder.Description = order.Description;
-        existingOrder.Value = order.Value;
-        await _context.SaveChangesAsync();
+        if (order.Description != null)
+            existingOrder.Description = order.Description;
 
+        if (order.Value != existingOrder.Value && order.Value != 0)
+            existingOrder.Value = order.Value;
+
+        await _context.SaveChangesAsync();
         return existingOrder;
     }
 

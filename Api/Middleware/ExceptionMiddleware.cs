@@ -61,3 +61,4 @@ public static class ExceptionMiddlewareExtensions
         return builder.UseMiddleware<ExceptionMiddleware>();
     }
 }
+

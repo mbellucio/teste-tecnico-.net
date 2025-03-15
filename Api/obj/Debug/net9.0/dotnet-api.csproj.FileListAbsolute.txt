@@ -6,13 +6,9 @@ E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/dotnet-api.deps.json
 E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/dotnet-api.runtimeconfig.json
 E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/dotnet-api.dll
 E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/dotnet-api.pdb
-E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Microsoft.AspNetCore.JsonPatch.dll
-E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Microsoft.AspNetCore.OpenApi.dll
-E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Microsoft.AspNetCore.Razor.Language.dll
 E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Microsoft.CodeAnalysis.dll
 E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Microsoft.CodeAnalysis.CSharp.dll
-E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Microsoft.CodeAnalysis.Razor.dll
 E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.dll
 E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Abstractions.dll
 E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Microsoft.Extensions.Caching.Abstractions.dll
@@ -25,8 +21,6 @@ E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Microsoft.Extensions.Logging.Abs
 E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Microsoft.Extensions.Options.dll
 E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Microsoft.Extensions.Primitives.dll
 E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Microsoft.OpenApi.dll
-E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Newtonsoft.Json.dll
-E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Newtonsoft.Json.Bson.dll
 E:/projects/dotnet-api/src/Api/obj/Debug/net9.0/dotnet-api.csproj.AssemblyReference.cache
 E:/projects/dotnet-api/src/Api/obj/Debug/net9.0/dotnet-api.GeneratedMSBuildEditorConfig.editorconfig
 E:/projects/dotnet-api/src/Api/obj/Debug/net9.0/dotnet-api.AssemblyInfoInputs.cache
@@ -338,3 +332,8 @@ E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/runtimes/win/lib/net6.0/System.W
 /app/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
 /app/bin/Debug/net9.0/dotnet-api.xml
 /app/obj/Debug/net9.0/dotnet-api.xml
+E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/dotnet-api.xml
+E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
+E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+E:/projects/dotnet-api/src/Api/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+E:/projects/dotnet-api/src/Api/obj/Debug/net9.0/dotnet-api.xml

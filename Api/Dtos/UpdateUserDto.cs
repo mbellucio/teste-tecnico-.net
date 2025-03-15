@@ -1,17 +1,17 @@
 /// <summary>
-/// Data required to update a new user.
+/// Data required to update an existing user. Only provided fields will be updated.
 /// </summary>
 public class UpdateUserDto
 {
     /// <summary>
-    /// The name of the User.
+    /// The name of the user. Optional; if not provided, the existing value is retained.
     /// </summary>
-    /// <example>Test User</example>
-    public string Name { get; set; }
+    /// <example>test user</example>
+    public string? Name { get; set; }
 
     /// <summary>
-    /// The email of the User.
+    /// The email of the user. Optional; if not provided, the existing value is retained.
     /// </summary>
-    /// <example>100.00</example>
-    public string Email { get; set; }
+    /// <example>testuser@mail.com</example>
+    public string? Email { get; set; }
 }

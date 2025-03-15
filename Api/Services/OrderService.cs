@@ -18,12 +18,12 @@ public class OrderService : IOrderService
         return await _repository.GetUserOrders(userId);
     }
 
-    public async Task<Order> Update(Order order)
+    public async Task<Order> Update(Guid id, Order order)
     {
         if (order == null)
             throw new ArgumentNullException(nameof(order));
 
-        var updatedOrder = await _repository.Update(order);
+        var updatedOrder = await _repository.Update(id, order);
         return updatedOrder;
     }
 
@@ -31,6 +31,5 @@ public class OrderService : IOrderService
     {
         return await _repository.Delete(orderId);
     }
-
 }
 

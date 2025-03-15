@@ -25,26 +25,31 @@ public class UserRepository : IUserRepository
     }
 
     public async Task<User> GetById(Guid userId)
-    {
+    {   
+        if (userId== Guid.Empty)
+            throw new ArgumentException("User ID must be provided.", nameof(userId));
+
         return await _context.Users
-            .AsNoTracking()
-            .FirstOrDefaultAsync(user => user.Id == userId); 
+            .FirstOrDefaultAsync(user => user.Id == userId);
     }
 
-    public async Task<User> Update(User user)
+    public async Task<User> Update(Guid id, User user)
     {
         ArgumentNullException.ThrowIfNull(user, nameof(user));
 
         var existingUser = await _context.Users
-            .FirstOrDefaultAsync(u => u.Id == user.Id);
+            .FirstOrDefaultAsync(u => u.Id == id);
 
         ArgumentNullException.ThrowIfNull(existingUser, nameof(user));
 
-        existingUser.Name = user.Name;
-        existingUser.Email = user.Email;
+        if (user.Email != null)
+            existingUser.Email = user.Email;
+
+        if (user.Name != null)
+            existingUser.Name = user.Name;
 
         await _context.SaveChangesAsync();
-        return existingUser; 
+        return existingUser;
     }
 
     public async Task<User> Delete(Guid userId)

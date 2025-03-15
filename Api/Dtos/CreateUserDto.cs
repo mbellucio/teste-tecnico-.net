@@ -6,12 +6,12 @@ public class CreateUserDto
     /// <summary>
     /// The name of the User.
     /// </summary>
-    /// <example>Test User</example>
+    /// <example>test user</example>
     required public string Name { get; set; }
 
     /// <summary>
     /// The email of the User.
     /// </summary>
-    /// <example>100.00</example>
+    /// <example>testuser@mail.com</example>
     required public string Email { get; set; }
 }
