@@ -13,6 +13,11 @@ public class UserRepository : IUserRepository
     {
         ArgumentNullException.ThrowIfNull(user, nameof(user));
 
+        if (await _context.Users.AnyAsync(u => u.Email == user.Email))
+        {
+            throw new InvalidOperationException("This email is already in use");
+        }
+
         var entity = new User
         {
             Email = user.Email,
@@ -25,8 +30,8 @@ public class UserRepository : IUserRepository
     }
 
     public async Task<User> GetById(Guid userId)
-    {   
-        if (userId== Guid.Empty)
+    {
+        if (userId == Guid.Empty)
             throw new ArgumentException("User ID must be provided.", nameof(userId));
 
         return await _context.Users

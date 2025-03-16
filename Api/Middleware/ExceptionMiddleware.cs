@@ -27,27 +27,27 @@ public class ExceptionMiddleware
     {
         context.Response.ContentType = "application/json";
 
-        var errorResponse = new
-        {
-            statusCode = context.Response.StatusCode,
-            message = string.Empty,
-        };
-
         switch (exception)
         {
             case KeyNotFoundException _:
                 context.Response.StatusCode = (int)HttpStatusCode.NotFound;
-                errorResponse = errorResponse with { message = "Resource not found." };
+                break;
+            case InvalidOperationException _:
+                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 break;
             case ArgumentException _:
                 context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                errorResponse = errorResponse with { message = "Invalid request data." };
                 break;
             default:
                 context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                errorResponse = errorResponse with { message = "An unexpected error occurred." };
                 break;
         }
+
+        var errorResponse = new
+        {
+            statusCode = context.Response.StatusCode,
+            message = exception.Message,
+        };
 
         var jsonResponse = JsonSerializer.Serialize(errorResponse);
         return context.Response.WriteAsync(jsonResponse);
