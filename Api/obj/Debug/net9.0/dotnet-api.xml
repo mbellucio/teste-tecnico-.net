@@ -12,6 +12,7 @@
             <returns>The newly created order.</returns>
             <response code="200">Returns the created order.</response>
             <response code="400">If the order data is invalid or missing.</response>
+            <response code="401">If the request is not authenticated.</response>
             <response code="500">If an unexpected error occurs.</response>
         </member>
         <member name="M:OrdersController.GetUserOrders(System.Guid,PaginationRequest)">
@@ -22,6 +23,7 @@
             <param name="pagination">Pagination parameters</param>
             <returns>All user orders.</returns>
             <response code="200">Returns all user orders.</response>
+            <response code="401">If the request is not authenticated.</response>
             <response code="404">If the order data is invalid or missing.</response>
             <response code="500">If an unexpected error occurs.</response>
         </member>
@@ -33,6 +35,7 @@
             <param name="orderDto">The order details to update.</param>
             <returns>The newly updated order.</returns>
             <response code="200">Returns the updated order.</response>
+            <response code="401">If the request is not authenticated.</response>
             <response code="404">If the order data is invalid or missing.</response>
             <response code="500">If an unexpected error occurs.</response>
         </member>
@@ -43,6 +46,7 @@
             <param name="id">the order id.</param>
             <returns>The newly deleted order</returns>
             <response code="200">Returns the deleted order.</response>
+            <response code="401">If the request is not authenticated.</response>
             <response code="404">If the order data is invalid or missing.</response>
             <response code="500">If an unexpected error occurs.</response>
         </member>
